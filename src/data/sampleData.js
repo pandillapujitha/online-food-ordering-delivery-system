@@ -1,0 +1,126 @@
+const photo = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=70`;
+// Menu row: [name, price, veg, category, description, emoji]
+const build = (rid, rows) =>
+  rows.map((r, i) => ({ id: `${rid}-${i + 1}`, name: r[0], price: r[1], veg: r[2], category: r[3], description: r[4], emoji: r[5], available: true }));
+
+export const CUISINES = ["Biryani", "South Indian", "North Indian", "Pizza", "Chinese", "Burgers", "Healthy", "Desserts"];
+
+export const seedRestaurants = [
+  { id: "r1", name: "Nawab's Biryani House", cuisines: ["Biryani", "North Indian"], rating: 4.5, reviews: 2840, deliveryTime: 35, priceForTwo: 500, deliveryFee: 40, freeDeliveryAbove: 499, pureVeg: false, open: true, emoji: "🍛",
+    image: photo("photo-1517248135467-4c7edcad34c4"), address: "Road No. 12, Banjara Hills", offer: "Use WELCOME50 on your first order",
+    menu: build("r1", [
+      ["Chicken Dum Biryani", 289, false, "Biryani", "Slow-cooked basmati rice layered with marinated chicken and saffron.", "🍗"],
+      ["Mutton Biryani", 389, false, "Biryani", "Tender mutton pieces cooked on dum with whole spices.", "🍖"],
+      ["Veg Biryani", 219, true, "Biryani", "Seasonal vegetables and paneer in fragrant rice.", "🥘"],
+      ["Egg Biryani", 229, false, "Biryani", "Boiled eggs tossed in spicy masala over basmati rice.", "🥚"],
+      ["Chicken 65", 199, false, "Starters", "Crispy fried chicken tossed with curry leaves and chillies.", "🍤"],
+      ["Paneer Tikka", 219, true, "Starters", "Char-grilled cottage cheese cubes with mint chutney.", "🧀"],
+      ["Mirchi ka Salan", 79, true, "Sides", "Tangy peanut and sesame gravy with green chillies.", "🌶️"],
+      ["Double ka Meetha", 99, true, "Desserts", "Hyderabadi bread pudding with rabdi and dry fruits.", "🍮"],
+      ["Sweet Lassi", 69, true, "Drinks", "Thick chilled yoghurt drink.", "🥛"],
+    ]) },
+  { id: "r2", name: "Udupi Tiffin Corner", cuisines: ["South Indian"], rating: 4.4, reviews: 3910, deliveryTime: 25, priceForTwo: 250, deliveryFee: 25, freeDeliveryAbove: 299, pureVeg: true, open: true, emoji: "🥞",
+    image: photo("photo-1555396273-367ea4eb4db5"), address: "Gandhi Road, Lakshmipuram", offer: "Free delivery above ₹299",
+    menu: build("r2", [
+      ["Masala Dosa", 89, true, "Dosa", "Crisp rice crepe filled with spiced potato.", "🥞"],
+      ["Ghee Podi Dosa", 109, true, "Dosa", "Dosa roasted in ghee and dusted with gunpowder.", "🫓"],
+      ["Idli Sambar (3 pcs)", 59, true, "Tiffins", "Soft steamed idlis with sambar and two chutneys.", "🍚"],
+      ["Medu Vada (2 pcs)", 69, true, "Tiffins", "Crunchy lentil doughnuts served with sambar.", "🍩"],
+      ["Pongal", 79, true, "Tiffins", "Creamy rice and moong dal tempered with pepper and ghee.", "🍲"],
+      ["Curd Rice", 79, true, "Meals", "Cooling yoghurt rice with pomegranate and tempering.", "🍚"],
+      ["Mini Meals", 149, true, "Meals", "Rice, sambar, rasam, two curries, curd and papad.", "🍽️"],
+      ["Filter Coffee", 35, true, "Drinks", "Strong South Indian decoction coffee.", "☕"],
+      ["Rava Kesari", 49, true, "Desserts", "Semolina sweet with cashews and cardamom.", "🍯"],
+    ]) },
+  { id: "r3", name: "Tandoor Tales", cuisines: ["North Indian"], rating: 4.3, reviews: 1760, deliveryTime: 40, priceForTwo: 600, deliveryFee: 45, freeDeliveryAbove: 599, pureVeg: false, open: true, emoji: "🫓",
+    image: photo("photo-1414235077428-338989a2e8c0"), address: "Brodipet Main Road", offer: "20% off up to ₹80 with SAVE20",
+    menu: build("r3", [
+      ["Butter Chicken", 329, false, "Mains", "Tandoori chicken in a rich tomato and butter gravy.", "🍛"],
+      ["Paneer Butter Masala", 279, true, "Mains", "Cottage cheese in a creamy cashew-tomato sauce.", "🧈"],
+      ["Dal Makhani", 219, true, "Mains", "Black lentils simmered overnight with cream.", "🫘"],
+      ["Chicken Tikka", 289, false, "Starters", "Yoghurt-marinated chicken grilled in the tandoor.", "🍢"],
+      ["Hara Bhara Kebab", 189, true, "Starters", "Spinach and green pea patties, shallow fried.", "🥬"],
+      ["Butter Naan", 55, true, "Breads", "Soft leavened bread brushed with butter.", "🫓"],
+      ["Garlic Naan", 65, true, "Breads", "Naan topped with garlic and coriander.", "🧄"],
+      ["Jeera Rice", 129, true, "Rice", "Basmati rice tempered with cumin.", "🍚"],
+      ["Gulab Jamun (2 pcs)", 79, true, "Desserts", "Warm milk dumplings in cardamom syrup.", "🟤"],
+    ]) },
+  { id: "r4", name: "Slice of Italy", cuisines: ["Pizza"], rating: 4.2, reviews: 1320, deliveryTime: 30, priceForTwo: 550, deliveryFee: 49, freeDeliveryAbove: 499, pureVeg: false, open: true, emoji: "🍕",
+    image: photo("photo-1513104890138-7c749659a591"), address: "Arundelpet, 3rd Lane", offer: "Buy any large pizza, get a free garlic bread",
+    menu: build("r4", [
+      ["Margherita", 199, true, "Pizzas", "Tomato, mozzarella and fresh basil on a thin crust.", "🍕"],
+      ["Farmhouse", 279, true, "Pizzas", "Capsicum, onion, mushroom and sweet corn.", "🍄"],
+      ["Pepperoni Feast", 349, false, "Pizzas", "Double pepperoni and extra mozzarella.", "🍕"],
+      ["BBQ Chicken", 329, false, "Pizzas", "Smoky barbecue chicken with onions.", "🍗"],
+      ["Garlic Bread with Cheese", 129, true, "Sides", "Toasted baguette with garlic butter and cheese.", "🥖"],
+      ["Penne Arrabbiata", 219, true, "Pasta", "Penne in a spicy tomato and garlic sauce.", "🍝"],
+      ["White Sauce Pasta", 239, true, "Pasta", "Creamy béchamel pasta with herbs.", "🍝"],
+      ["Tiramisu Cup", 149, true, "Desserts", "Coffee-soaked sponge layered with mascarpone.", "🍰"],
+      ["Cold Coffee", 109, true, "Drinks", "Blended iced coffee with ice cream.", "🧋"],
+    ]) },
+  { id: "r5", name: "Dragon Wok", cuisines: ["Chinese"], rating: 4.1, reviews: 980, deliveryTime: 35, priceForTwo: 450, deliveryFee: 35, freeDeliveryAbove: 449, pureVeg: false, open: true, emoji: "🥡",
+    image: photo("photo-1540189549336-e6e99c3679fe"), address: "Kothapet Circle", offer: "Free delivery with FREEDEL above ₹249",
+    menu: build("r5", [
+      ["Veg Hakka Noodles", 169, true, "Noodles & Rice", "Wok-tossed noodles with crunchy vegetables.", "🍜"],
+      ["Chicken Fried Rice", 199, false, "Noodles & Rice", "Egg fried rice with shredded chicken.", "🍚"],
+      ["Schezwan Noodles", 189, true, "Noodles & Rice", "Fiery noodles in house schezwan sauce.", "🌶️"],
+      ["Chilli Chicken", 249, false, "Starters", "Crisp chicken in a tangy soy and chilli glaze.", "🍗"],
+      ["Gobi Manchurian", 179, true, "Starters", "Fried cauliflower in a garlicky manchurian sauce.", "🥦"],
+      ["Veg Spring Rolls", 149, true, "Starters", "Golden rolls stuffed with cabbage and carrot.", "🥟"],
+      ["Chicken Dumplings (6 pcs)", 219, false, "Starters", "Steamed momos with a spicy dip.", "🥟"],
+      ["Hot and Sour Soup", 119, true, "Soups", "Peppery, tangy soup with mushrooms and tofu.", "🍲"],
+      ["Lemon Iced Tea", 79, true, "Drinks", "Chilled black tea with lemon.", "🍋"],
+    ]) },
+  { id: "r6", name: "Burger Barn", cuisines: ["Burgers"], rating: 4.0, reviews: 2210, deliveryTime: 25, priceForTwo: 350, deliveryFee: 30, freeDeliveryAbove: 399, pureVeg: false, open: true, emoji: "🍔",
+    image: photo("photo-1565299624946-b28f40a0ae38"), address: "Nagarampalem Road", offer: "Combo meals from ₹199",
+    menu: build("r6", [
+      ["Classic Veg Burger", 109, true, "Burgers", "Crispy veg patty with lettuce, tomato and mayo.", "🍔"],
+      ["Paneer Tikka Burger", 149, true, "Burgers", "Spiced paneer patty with mint mayo.", "🍔"],
+      ["Crispy Chicken Burger", 169, false, "Burgers", "Buttermilk fried chicken with coleslaw.", "🍔"],
+      ["Double Cheese Chicken Burger", 219, false, "Burgers", "Two grilled patties and melted cheddar.", "🧀"],
+      ["Peri Peri Fries", 99, true, "Sides", "Crinkle fries with peri peri seasoning.", "🍟"],
+      ["Onion Rings", 89, true, "Sides", "Beer-battered rings with a smoky dip.", "🧅"],
+      ["Chicken Nuggets (6 pcs)", 139, false, "Sides", "Golden nuggets with BBQ sauce.", "🍗"],
+      ["Chocolate Shake", 129, true, "Drinks", "Thick shake made with real chocolate.", "🥤"],
+      ["Burger and Fries Combo", 199, true, "Combos", "Classic veg burger, fries and a soft drink.", "🍱"],
+    ]) },
+  { id: "r7", name: "Green Bowl Kitchen", cuisines: ["Healthy"], rating: 4.6, reviews: 640, deliveryTime: 30, priceForTwo: 400, deliveryFee: 30, freeDeliveryAbove: 399, pureVeg: true, open: true, emoji: "🥗",
+    image: photo("photo-1546069901-ba9599a7e63c"), address: "Kondapur Main Road", offer: "Light, high-protein bowls under 450 kcal",
+    menu: build("r7", [
+      ["Quinoa Power Bowl", 249, true, "Bowls", "Quinoa, chickpeas, avocado, cucumber and tahini dressing.", "🥗"],
+      ["Paneer Tikka Salad", 229, true, "Salads", "Grilled paneer on greens with lemon-mint dressing.", "🥬"],
+      ["Greek Salad", 199, true, "Salads", "Tomato, olives, feta and cucumber with oregano.", "🫒"],
+      ["Sprouts Chaat Bowl", 149, true, "Bowls", "Sprouted moong with onion, tomato and lime.", "🌱"],
+      ["Millet Khichdi", 169, true, "Bowls", "Foxtail millet and lentils with ghee.", "🍲"],
+      ["Hummus and Pita", 159, true, "Snacks", "Creamy hummus with toasted wholewheat pita.", "🫓"],
+      ["Green Detox Juice", 119, true, "Drinks", "Spinach, apple, cucumber and ginger.", "🥒"],
+      ["Watermelon Cooler", 99, true, "Drinks", "Fresh watermelon with mint, no added sugar.", "🍉"],
+    ]) },
+  { id: "r8", name: "Sweet Tooth Bakery", cuisines: ["Desserts"], rating: 4.7, reviews: 1540, deliveryTime: 30, priceForTwo: 300, deliveryFee: 30, freeDeliveryAbove: 349, pureVeg: true, open: true, emoji: "🍰",
+    image: photo("photo-1567620905732-2d1ec7ab7445"), address: "Kaman Road, Guntur", offer: "Fresh bakes, delivered within 30 minutes",
+    menu: build("r8", [
+      ["Chocolate Truffle Cake (500 g)", 449, true, "Cakes", "Dense chocolate sponge with ganache.", "🎂"],
+      ["Red Velvet Pastry", 99, true, "Pastries", "Cream cheese frosting on red velvet sponge.", "🧁"],
+      ["Blueberry Cheesecake Slice", 159, true, "Pastries", "Baked cheesecake with blueberry compote.", "🍰"],
+      ["Brownie with Ice Cream", 149, true, "Desserts", "Warm fudgy brownie with vanilla scoop.", "🍫"],
+      ["Belgian Waffle", 139, true, "Desserts", "Crisp waffle with chocolate sauce.", "🧇"],
+      ["Rasmalai (2 pcs)", 119, true, "Indian Sweets", "Soft cheese discs in saffron milk.", "🥛"],
+      ["Choco Chip Cookies (4 pcs)", 99, true, "Bakes", "Chewy cookies with dark chocolate chunks.", "🍪"],
+      ["Hot Chocolate", 109, true, "Drinks", "Rich cocoa topped with whipped cream.", "☕"],
+    ]) },
+];
+
+export const seedUsers = [
+  { id: "u-admin", name: "Admin", email: "admin@bitezy.com", phone: "9000000000", password: "admin123", role: "admin" },
+  { id: "u-demo", name: "Demo Customer", email: "user@bitezy.com", phone: "9111111111", password: "user123", role: "user" },
+];
+
+const day = 24 * 60 * 60 * 1000;
+export const seedOrders = [
+  { id: "FD482910", userId: "u-demo", restaurantId: "r1", restaurantName: "Nawab's Biryani House", items: [{ id: "r1-1", name: "Chicken Dum Biryani", price: 289, qty: 2, veg: false }, { id: "r1-9", name: "Sweet Lassi", price: 69, qty: 2, veg: true }],
+    address: "Flat 302, Sai Residency, Brodipet", phone: "9111111111", payment: "UPI", coupon: "", totals: { subtotal: 716, discount: 0, delivery: 0, tax: 36, total: 752 }, createdAt: Date.now() - 3 * day, manualStatus: "delivered", driver: "Ravi Kumar" },
+  { id: "FD317745", userId: "u-demo", restaurantId: "r2", restaurantName: "Udupi Tiffin Corner", items: [{ id: "r2-1", name: "Masala Dosa", price: 89, qty: 2, veg: true }, { id: "r2-8", name: "Filter Coffee", price: 35, qty: 2, veg: true }],
+    address: "Flat 302, Sai Residency, Brodipet", phone: "9111111111", payment: "Cash on delivery", coupon: "", totals: { subtotal: 248, discount: 0, delivery: 25, tax: 12, total: 285 }, createdAt: Date.now() - 6 * day, manualStatus: "delivered", driver: "Suresh B" },
+  { id: "FD905561", userId: "u-demo", restaurantId: "r4", restaurantName: "Slice of Italy", items: [{ id: "r4-3", name: "Pepperoni Feast", price: 349, qty: 1, veg: false }],
+    address: "Flat 302, Sai Residency, Brodipet", phone: "9111111111", payment: "Card", coupon: "WELCOME50", totals: { subtotal: 349, discount: 100, delivery: 49, tax: 12, total: 310 }, createdAt: Date.now() - 9 * day, manualStatus: "cancelled", driver: "Kiran M" },
+];
