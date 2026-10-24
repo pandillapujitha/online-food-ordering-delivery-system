@@ -1,4 +1,7 @@
 # Bitezy – Online Food Ordering and Delivery System
+## Live Demo
+
+🌐 [Online Food Ordering and Delivery System](https://online-food-ordering-delivery-syste.vercel.app/)
 
 A beginner-friendly college project built with **React 18, React Router 6, Hooks, Context API, HTML, CSS and JavaScript** (bundled with Vite).
 It uses realistic sample data stored in the browser (`localStorage`), so you do not need a backend or database.
